@@ -1,2 +1,2 @@
 $py = if (Test-Path .venv/bin/python) { '.venv/bin/python' } else { 'python' }
-& $py "src\doxing-fuites_main.py"
+& $py "src\doxing_fuites_main.py"
