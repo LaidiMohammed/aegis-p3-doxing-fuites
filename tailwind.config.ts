@@ -5,9 +5,9 @@ const config: Config = {
     extend: {
       colors: { paper: "#efece4", coal: "#111111", red: "#c0392b", fog: "#8b8b8b" },
       fontFamily: {
-        display: ["Special Elite", "Courier New", "monospace"],
-        mono: ["IBM Plex Mono", "Consolas", "monospace"],
-        sans: ["Inter", "Arial", "sans-serif"],
+        display: ["var(--font-display)", "Courier New", "monospace"],
+        mono: ["var(--font-mono)", "Consolas", "monospace"],
+        sans: ["var(--font-sans)", "Arial", "sans-serif"],
       },
     },
   },
