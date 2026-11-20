@@ -1,34 +1,48 @@
-# AEGIS — P3 — Détection de fuites sociales (doxing)
+# AEGIS — P3 — Fuites sociales (doxing)
 
-[![Vercel](https://img.shields.io/badge/Vercel-aegis-p3--blue?logo=vercel)](https://aegis-p3-doxing-fuites.vercel.app)
-[![Tests](https://img.shields.io/badge/Tests-passing-brightgreen)]
+P3 — **Outil de détection de fuites sociales (doxing)** (PFE P13 style AEGIS).
 
-Détection de fuites sociales (doxing) — PFE P13 style AEGIS (Master 1 Sécurité informatique).
+## Objectif
 
-## Infos rapides
+Corrélation d'identités numériques et fuites de données (doxing), sur des cibles libres/génériques.
 
-| Élément | Valeur |
-|---|---|
-| **GitHub** | https://github.com/LaidiMohammed/aegis-p3-doxing-fuites |
-| **Vercel** | https://aegis-p3-doxing-fuites.vercel.app |
-| **Stacks** | PyGithub, requests, exiftool CLI |
-| **Type** | pg |
-| **Ethique** | Labo local, anti-GPU, anti-cloud, stand-alone |
+## Architecture
+
+```
+AEGIS P3 (doxing-fuites)
+├── src/
+│   ├── doxing_fuites_main.py    # CLI — username_correlator / breach_checker / metadata_scanner / doxing_audit
+│   └── generate_report.py       # PDF via reportlab
+└── tests/
+    └── test_doxing.py           # 7 tests mocks — pass
+```
+
+## Fonctions — démo à la prof
+
+```bash
+python -m src.doxing_fuites_main --username testuser123 --save-json outputs/results.json --json
+python -m src.generate_report --json outputs/results.json --pdf outputs/rapport-p3.pdf
+```
+
+- `username_correlator` : sherlock CLI (local — mock dans tests) — comptes associés.
+- `breach_checker` : Have I Been Pwned API (mock dans tests).
+- `metadata_scanner` : exiftool (mock dans tests).
+- `doxing_audit` : cette commande complète (7 tests pass).
 
 ## Install
 
 ```bash
 pip install -r requirements.txt
-make install  # (venv)
 ```
 
-## Smoke & tests (démo à la prof)
+## Sites
 
-```bash
-make smoke   # ou: scripts/run_smoke.sh
-make test
-```
+- **GitHub** : https://github.com/LaidiMohammed/aegis-p3-doxing-fuites
+- **Vercel** : https://aegis-p3-doxing-fuites.vercel.app
 
-## Fonctions à exécuter à la démo
+## Éthique
 
-Voir [`docs/ETHICS.md`](docs/ETHICS.md), [`docs/SPEC.md`](docs/SPEC.md).
+- identifiant générique (testuser123@example.com), pas de compte réel — Smoke uniquement.
+- Aucune fuite diffuse (anonymisation dans outputs — voir audit éthique P3).
+
+See `docs/ETHICS.md`.
