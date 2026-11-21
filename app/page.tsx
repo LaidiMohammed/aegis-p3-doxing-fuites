@@ -1,4 +1,4 @@
-import RedactionAudit from "@/components/RedactionAudit";
+import Console from "@/components/Console";
 import Reveal from "@/components/Reveal";
 
 const MODULES = [
@@ -38,7 +38,7 @@ export default function Page() {
           <Reveal delay={210}><div className="mt-7 flex flex-wrap gap-3"><a href="#audit" className="bg-coal px-6 py-3 font-mono text-xs font-bold uppercase tracking-widest text-paper hover:bg-red">Ouvrir le dossier ↓</a><a href="#modules" className="border border-coal/50 px-6 py-3 font-mono text-xs uppercase tracking-widest hover:border-red hover:text-red">Les modules</a></div></Reveal>
           <Reveal delay={280}><div className="mt-10 flex flex-wrap gap-8 border-t border-coal/20 pt-6">{[["04","modules"],["07","tests mocks"],["1","rapport PDF"],["00","compte réel"]].map(([n,l])=><div key={l}><div className="typed text-2xl font-bold">{n}</div><div className="coord text-coal/45">{l}</div></div>)}</div></Reveal>
         </div>
-        <Reveal delay={120}><RedactionAudit /></Reveal>
+        <Reveal delay={120}><Console /></Reveal>
       </section>
 
       <section id="modules" className="mx-auto max-w-7xl px-5 py-14">
